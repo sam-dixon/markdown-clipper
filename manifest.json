@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Obsidian Clipper",
+  "version": "0.0.1",
+  "background": {
+    "service_worker": "build/extension.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "description": "Simple web clipper for Obsidian",
+  "icons": {
+    "128": "img/icon.png"
+  },
+  "author": "Sam Dixon",
+  "host_permissions": [
+    "*://*/"
+  ],
+  "permissions": [
+    "tabs"
+  ]
+}

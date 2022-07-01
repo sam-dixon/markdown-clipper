@@ -1,0 +1,38 @@
+html {
+  min-width: 200px;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: medium;
+  color: #0f1212;
+  text-align: center;
+  padding: 1em;
+}
+
+button {
+  background-color: #1c6eff;
+  border: none;
+  color: white;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  filter: brightness(85%);
+}
+
+#logoutButton {
+  font-size: 12px;
+  background-color: #d8d8d7;
+  color: #0f1212;
+}
