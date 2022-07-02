@@ -1,38 +1,157 @@
-.App {
-  text-align: center;
+.container {
+  width: 250px;
+  background-color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  position: relative;
+  height: 24px;
+  margin: 4px 0 0 4px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.title {
+  margin-left: 8px;
+  font-size: 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.settings-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  padding: 4px;
+  border: none;
+  margin-right: 4px;
+
+  background-color: #fff;
+  font-size: 14px;
+}
+
+.fa-gear {
+  color: #7A8490;
+}
+
+.fa-x {
+  width: 14px;
+  height: 12px;
+  color: #7A8490;
+}
+
+.article-title-input {
+  width: 216px;
+  height: 34px;
+  padding: 8px;
+  border: 1px solid #EBEDF0;
+  margin: 8px;
+  border-radius: 2px;
+  font-family: inherit;
+  resize: none;
+}
+
+.footer {
+  margin: -4px 8px 8px 8px;
+}
+
+.download-location-dropdown {
+  width: 176px;
+  height: 32px;
+  padding: 8px;
+  border: 1px solid #EBEDF0;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+
+.download-location-option {
+  padding: 0;
+}
+
+.submit-button {
+  vertical-align: top;
+  width: 50px;
+  height: 32px;
+  padding: 8px;
+  border: none;
+  border-radius: 2px;
+
+  color: #fff;
+  background-color: #2E80F2;
+  font-size: 12px;
+}
+
+/* Settings */
+.setting-header {
+  position: relative;
+  margin: 4px 0 0 4px;
+}
+
+.subtitle {
+  margin-left: 8px;
+  color: #7A8490;
+  font-size: 12px;
+}
+
+.add-download-location {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  width: 32px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  background-color: #2E80F2;
+  font-size: 12px;
+}
+
+.download-locations-list-container {
+  margin: 8px;
+  padding: 8px;
+  max-height: 80px;
+  overflow-y: auto;
+  border: 1px solid #EBEDF0;
+  border-radius: 2px;
+}
+
+.download-location-container {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  vertical-align: bottom;
+  padding: 4px 0;
+  font-size: 12px;
+  cursor: default;
 }
 
-.App-link {
-  color: #61dafb;
+.fa-star {
+  padding-right: 8px;
+  opacity: 0;
+  color:#7A8490;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fa-star.default {
+  color: #e5b567;
+  opacity: 1;
+}
+
+.fa-trash {
+  position: absolute;
+  right: 4px;
+  color: #7A8490;
+  opacity: 0;
+}
+
+.download-location-container:hover .fa-star {
+  opacity: 1;
+}
+
+.download-location-container:hover .fa-trash {
+  opacity: 1;
+}
+
+.fa-star:hover {
+  color: #e5b567;
+}
+
+.fa-trash:hover {
+  color: #e83e3e;
 }
