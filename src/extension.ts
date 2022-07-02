@@ -1,6 +1,4 @@
-function reloadPopup() {
-  chrome.runtime.sendMessage({ type: "reload" });
-}
+export {};
 
 async function currentTabs() {
   return await chrome.tabs.query({
