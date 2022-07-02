@@ -49,16 +49,17 @@
 }
 
 .footer {
-  margin: -4px 8px 8px 8px;
+  margin: -8px 8px 8px 8px;
+  display: flex;
 }
 
-.download-location-dropdown {
+.download-location {
   width: 176px;
-  height: 32px;
-  padding: 8px;
-  border: 1px solid #EBEDF0;
-  margin-right: 8px;
+  height: 16px;
+  padding: 0 8px 8px 4px;
+  margin-bottom: 8px;
   border-radius: 2px;
+  font-size: 12px;
 }
 
 .download-location-option {
@@ -74,84 +75,46 @@
   border-radius: 2px;
 
   color: #fff;
-  background-color: #2E80F2;
+  background-color: #2e80f2;
   font-size: 12px;
 }
 
 /* Settings */
-.setting-header {
-  position: relative;
-  margin: 4px 0 0 4px;
+.settings-container {
+  padding: 0 8px 8px 0
 }
 
-.subtitle {
+.setting {
+  margin: 4px 0 0 4px;
+  position: relative;
+}
+
+.setting-name {
   margin-left: 8px;
   color: #7A8490;
   font-size: 12px;
 }
 
-.add-download-location {
+input.setting-value {
   position: absolute;
-  top: 4px;
+  top: 0;
+  right: 0;
+  width: 100px;
+  font-size: 12px;
+}
+
+.settings-footer {
+  position: relative;
+  height: 32px;
+}
+.save-settings {
+  position: absolute;
   right: 8px;
-  width: 32px;
-  height: 16px;
-  padding: 0;
   border: none;
+  padding: 4px;
   border-radius: 2px;
+
   color: #fff;
   background-color: #2E80F2;
   font-size: 12px;
-}
-
-.download-locations-list-container {
-  margin: 8px;
-  padding: 8px;
-  max-height: 80px;
-  overflow-y: auto;
-  border: 1px solid #EBEDF0;
-  border-radius: 2px;
-}
-
-.download-location-container {
-  position: relative;
-  display: flex;
-  vertical-align: bottom;
-  padding: 4px 0;
-  font-size: 12px;
-  cursor: default;
-}
-
-.fa-star {
-  padding-right: 8px;
-  opacity: 0;
-  color:#7A8490;
-}
-
-.fa-star.default {
-  color: #e5b567;
-  opacity: 1;
-}
-
-.fa-trash {
-  position: absolute;
-  right: 4px;
-  color: #7A8490;
-  opacity: 0;
-}
-
-.download-location-container:hover .fa-star {
-  opacity: 1;
-}
-
-.download-location-container:hover .fa-trash {
-  opacity: 1;
-}
-
-.fa-star:hover {
-  color: #e5b567;
-}
-
-.fa-trash:hover {
-  color: #e83e3e;
 }
