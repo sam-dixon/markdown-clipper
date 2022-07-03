@@ -44,17 +44,23 @@ function Settings(props: any) {
 }
 
 function Main(props: any) {
-  const [pageTitle, setPageTitle] = useState(props.pageTitle);
+  const [tabInfo, setTabInfo] = useState({ pageTitle: 'Title', url: '' });
 
-  chrome.runtime.sendMessage({ type: 'request-tab-info' }, (response) => {
-    setPageTitle(response.pageTitle);
-  });
+  useEffect(() => {
+    chrome.runtime.sendMessage({ type: 'request-tab-info' }, (response) => {
+      setTabInfo(response);
+    });
+  }, []);
 
   const handlePageTitleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setPageTitle(e.target.value);
+    setTabInfo({ pageTitle: e.target.value, url: tabInfo.url });
   };
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {};
+  const savePage = (e: React.MouseEvent<HTMLButtonElement>) => {
+    chrome.runtime.sendMessage({ type: 'request-save-page' }, (response) => {
+      console.log(response);
+    });
+  };
 
   return (
     <div className="container">
@@ -64,10 +70,16 @@ function Main(props: any) {
           <FontAwesomeIcon icon={faGear} />
         </button>
       </div>
-      <textarea className="page-title-input" value={pageTitle} onChange={handlePageTitleChange} />
+      <textarea
+        className="page-title-input"
+        value={tabInfo.pageTitle}
+        onChange={handlePageTitleChange}
+      />
       <div className="footer">
         <div className="download-location">Save to: {props.settings.downloadLocation}</div>
-        <button className="submit-button">Add</button>
+        <button className="submit-button" onClick={savePage}>
+          Add
+        </button>
       </div>
     </div>
   );

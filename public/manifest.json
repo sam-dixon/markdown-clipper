@@ -5,6 +5,16 @@
   "background": {
     "service_worker": "static/js/extension.js"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*"
+      ],
+      "js": [
+        "static/js/content.js"
+      ]
+    }
+  ],
   "action": {
     "default_popup": "index.html"
   },

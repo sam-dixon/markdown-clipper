@@ -13,12 +13,18 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
       },
       (tabs) => {
         if (tabs.length > 0) {
-          sendResponse({ pageTitle: tabs[0].title });
+          const [tab] = tabs;
+          sendResponse({ pageTitle: tab.title, url: tab.url });
         } else {
-          sendResponse({ pageTitle: 'Title' });
+          sendResponse({ pageTitle: 'Title', url: '' });
         }
       }
     );
+  } else if (message.type === 'request-save-page') {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      const [tab] = tabs;
+      chrome.tabs.sendMessage(tab.id!, { type: 'save-page' });
+    });
   }
   return true;
 });
