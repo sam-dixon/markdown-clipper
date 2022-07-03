@@ -11,7 +11,8 @@
         "https://*/*"
       ],
       "js": [
-        "static/js/content.js"
+        "static/js/content.js",
+        "static/js/4.js"
       ]
     }
   ],

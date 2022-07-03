@@ -2,9 +2,9 @@ import { Readability } from '@mozilla/readability';
 
 function savePage() {
   const clone = document.cloneNode(true);
-  console.log(clone);
   const reader = new Readability(clone as Document);
-  // const article = reader.parse();
+  const article = reader.parse();
+  console.log(article);
 }
 
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {

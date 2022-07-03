@@ -23,7 +23,9 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   } else if (message.type === 'request-save-page') {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       const [tab] = tabs;
-      chrome.tabs.sendMessage(tab.id!, { type: 'save-page' });
+      chrome.tabs.sendMessage(tab.id!, { type: 'save-page' }, (response) => {
+        sendResponse(response);
+      });
     });
   }
   return true;
