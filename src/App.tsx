@@ -12,10 +12,17 @@ function Settings(props: any) {
 
   const saveSettings = (_e: React.MouseEvent<HTMLButtonElement>) => {
     chrome.storage.sync.set(settings);
+    props.toggle();
   };
 
   return (
-    <>
+    <div className="container">
+      <div className="header">
+        <div className="title">Settings</div>
+        <button className="settings-button" onClick={props.toggle}>
+          <FontAwesomeIcon icon={faX} />
+        </button>
+      </div>
       <div className="settings-container">
         <div className="setting">
           <div className="setting-name">Download location</div>
@@ -32,29 +39,37 @@ function Settings(props: any) {
           Save
         </button>
       </div>
-    </>
+    </div>
   );
 }
 
 function Main(props: any) {
-  const [articleTitle, setArticleTitle] = useState('Placeholder');
+  const [pageTitle, setPageTitle] = useState(props.pageTitle);
 
-  const handleArticleTitleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setArticleTitle(e.target.value);
+  chrome.runtime.sendMessage({ type: 'request-tab-info' }, (response) => {
+    setPageTitle(response.pageTitle);
+  });
+
+  const handlePageTitleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setPageTitle(e.target.value);
   };
 
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {};
+
   return (
-    <>
-      <textarea
-        className="article-title-input"
-        value={articleTitle}
-        onChange={handleArticleTitleChange}
-      />
+    <div className="container">
+      <div className="header">
+        <div className="title">Markdown Web Clipper</div>
+        <button className="settings-button" onClick={props.toggle}>
+          <FontAwesomeIcon icon={faGear} />
+        </button>
+      </div>
+      <textarea className="page-title-input" value={pageTitle} onChange={handlePageTitleChange} />
       <div className="footer">
         <div className="download-location">Save to: {props.settings.downloadLocation}</div>
         <button className="submit-button">Add</button>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -66,22 +81,16 @@ function App() {
     chrome.runtime.sendMessage({ type: 'request-settings' }, (response) => {
       setSettings(response.settings);
     });
-  });
+  }, []);
 
   const toggleSettings = (_e: React.MouseEvent<HTMLButtonElement>) => {
     setIsSettingsShown(!isSettingsShown);
   };
 
-  return (
-    <div className="container">
-      <div className="header">
-        <div className="title">{isSettingsShown ? 'Settings' : 'Markdown Web Clipper'}</div>
-        <button className="settings-button" onClick={toggleSettings}>
-          {isSettingsShown ? <FontAwesomeIcon icon={faX} /> : <FontAwesomeIcon icon={faGear} />}
-        </button>
-      </div>
-      {isSettingsShown ? <Settings settings={settings} /> : <Main settings={settings} />}
-    </div>
+  return isSettingsShown ? (
+    <Settings settings={settings} toggle={toggleSettings} />
+  ) : (
+    <Main settings={settings} toggle={toggleSettings} />
   );
 }
 

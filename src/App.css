@@ -37,10 +37,10 @@
   color: #7A8490;
 }
 
-.article-title-input {
+.page-title-input {
   width: 216px;
-  height: 34px;
-  padding: 8px;
+  height: 54px;
+  padding: 4px 8px;
   border: 1px solid #EBEDF0;
   margin: 8px;
   border-radius: 2px;
@@ -100,7 +100,10 @@ input.setting-value {
   top: 0;
   right: 0;
   width: 100px;
+  border: 1px solid #EBEDF0;
+  border-radius: 2px;
   font-size: 12px;
+  font-family: inherit;
 }
 
 .settings-footer {
