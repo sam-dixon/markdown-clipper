@@ -1,4 +1,5 @@
 module.exports = {
+  eslint: null,
   webpack: {
     configure: (webpackConfig, { env, paths }) => {
       return {

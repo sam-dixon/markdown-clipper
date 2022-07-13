@@ -1,10 +1,14 @@
 import { Readability } from '@mozilla/readability';
+import TurndownService from 'turndown';
+
+const turndownService = new TurndownService();
+// mdConverter.remove(['img', 'figure', 'picture']);
 
 function savePage() {
-  const clone = document.cloneNode(true);
-  const reader = new Readability(clone as Document);
-  const article = reader.parse();
-  console.log(article);
+  const article = new Readability(document.cloneNode(true) as Document).parse();
+  const markdown = turndownService.turndown(article?.content!);
+  console.log('[Clipper HTML]', article?.content);
+  console.log('[Clipper MD]', markdown);
 }
 
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
