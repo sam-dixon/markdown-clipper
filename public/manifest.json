@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Obsidian Clipper",
+  "name": "Markdown Web Clipper",
   "version": "0.0.1",
   "background": {
     "service_worker": "static/js/extension.js"
@@ -18,7 +18,7 @@
   "action": {
     "default_popup": "index.html"
   },
-  "description": "Simple web clipper for Obsidian",
+  "description": "Simple Markdown web clipper",
   "icons": {
     "128": "img/icon.png"
   },
