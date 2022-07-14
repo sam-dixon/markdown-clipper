@@ -12,3 +12,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1D2126;
+    color: #CED3D8;
+  }
+}

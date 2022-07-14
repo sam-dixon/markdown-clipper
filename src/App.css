@@ -121,3 +121,47 @@ input.setting-value {
   background-color: #2E80F2;
   font-size: 12px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: #1D2126;
+  }
+  
+  .settings-button {
+    background-color: #1D2126;
+  }
+  
+  .fa-gear {
+    color: #8793A2;
+  }
+  
+  .fa-x {
+    color: #8793A2;
+  }
+  
+  .page-title-input {
+    color: #CED3D8;
+    background-color: #22262B;
+    border: 1px solid #262B31;
+  }
+  
+  .submit-button {
+    color: #CED3D8;
+    background-color: #396ED8;
+  }
+  
+  .setting-name {
+    color: #8793A2;
+  }
+  
+  input.setting-value {
+    color: #CED3D8;
+    background-color: #22262B;
+    border: 1px solid #262B31;
+  }
+  
+  .save-settings {
+    color: #CED3D8;
+    background-color: #396ED8;
+  }
+}
