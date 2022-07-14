@@ -122,7 +122,7 @@ function App() {
     chrome.runtime.sendMessage({ type: 'request-settings' }, (response) => {
       setSettings(response.settings);
     });
-  }, []);
+  }, [settings]);
 
   const toggleSettings = (_e: React.MouseEvent<HTMLButtonElement>) => {
     setIsSettingsShown(!isSettingsShown);
