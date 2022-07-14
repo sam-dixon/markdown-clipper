@@ -104,7 +104,7 @@ function Main(props: any) {
       />
       <div className="footer">
         <div className="download-location">
-          {props.settings.saveAs ? '' : `Save to: ${props.settings.downloadLocation}`}
+          {props.settings.saveAs ? '' : `Save to: Downloads/${props.settings.downloadLocation}`}
         </div>
         <button className="submit-button" onClick={savePage}>
           Add
